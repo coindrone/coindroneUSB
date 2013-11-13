@@ -1,0 +1,9 @@
+[Unit]
+Description=CoinDrone Process
+
+[Service]
+Type=forking
+ExecStart=/etc/systemd/scripts/CoinDrone
+
+[Install]
+WantedBy=multi-user.target

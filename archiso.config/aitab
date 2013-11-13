@@ -1,0 +1,2 @@
+# <img>         <mnt>                 <arch>   <sfs_comp>  <fs_type>  <fs_size>
+root-image      /                     x86_64   xz          ext4       20%

@@ -28,7 +28,7 @@ Running CoinDrone with the default configuration will mint coins for a Coindrone
 #### Prepare USB Key
 You will need a USB drive larger than 1GB. (all data will be erased when installing CoinDrone)
 
-1. Download the latest image **[CoinDrone.v0.2-alpha.img](http://sourceforge.net/projects/win32diskimager/)** 
+1. Download the latest image **[CoinDrone.v0.2-alpha.img](https://s3.amazonaws.com/coindrone/dist/CoinDrone.v0.2-alpha.img)** 
 2. Download and unrar **[Win32diskimager](http://sourceforge.net/projects/win32diskimager/)**
 3. Open Win32DiskImager and select both the .img and a UBS key larger than 1GB. Click "Write" to begin the transfer.
 4. * (WARNING: Make sure that you select the right USB since this will erase all data on the USB)

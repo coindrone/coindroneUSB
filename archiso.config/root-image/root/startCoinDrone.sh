@@ -4,7 +4,11 @@
 #General Configs
 diskID="0xa6c377d7"
 confFile="CoinDrone.conf"
-logFile="/var/log/CoinDrone.log"
+logFile="/root/CoinDrone.log"
+logFileminer="/root/CoinDrone-cgminer.log"
+
+touch ${logFile}
+touch ${logFileminer}
 
 #Check if the program is already started and start it. 
 if [ -z $(pgrep -u root cgminer) ]; then
@@ -20,31 +24,40 @@ if [ -z $(pgrep -u root cgminer) ]; then
     fi
     
     mount ${usbdrivepart} /root/coindroneusb
-    echo "mount" >>$logFile    
+    echo "Mounting USB" >>$logFile    
 
     if [ -f /root/coindroneusb/${confFile} ]; then
-      source /root/coindroneusb/${confFile}
+      cp -rf /root/coindroneusb/${confFile} /root/${confFile}
     else
       echo "Warning: No conf file found on USB drive." >>$logFile
-      source /root/${confFile}
     fi
     
     umount /root/coindroneusb    
-    echo "umount" >>$logFile
+    echo "Unmounting USB" >>$logFile
 
   else
-    echo "Warning: Didn't find the USB Drive." >>$logFile
-    source /root/CoinDrone.conf
+    echo "Warning: Didn't find the USB Drive. Loading Default config file." >>$logFile
   fi  
   
-  echo "Installing cgminer." >>$logFile
-  pacman -U --noconfirm ~/cgminer-3.7.2-1-x86_64.pkg.tar.xz
-  echo "Starting CoinDrone." >>$logFile
+  #Loading Config File.
+  if [ -f /root/${confFile} ]; then
+    source /root/${confFile}
+  else
+    source /root/CoinDrone.conf
+  fi
+  
+  if [ ! -f /usr/bin/cgminer ]; then
+    echo "cgminer not found. Installing..." >>$logFile
+    pacman -U --noconfirm ~/cgminer-3.7.2-1-x86_64.pkg.tar.xz >>$logFile
+    echo "Install complete." >>$logFile
+  fi
+  
+  #Wait 10 sec for network dhcp connection and other services.
   sleep 10
-  screen -dmS coindrone cgminer ${cgminerargs} 
+  
+  echo "Starting CoinDrone." >>$logFile
+  screen -dmS coindrone cgminer ${cgminerargs} 2>/root/CoinDrone-cgminer.log
  
 else
   echo "Warning: Program is already started." >>$logFile
 fi
-
-beep

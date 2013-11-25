@@ -43,7 +43,7 @@ Current config looks for CoinDrone USB key and for a config file on the root of 
 Edit the args variable to reflect your user settings:
 
 * **--scrypt** (for LTC-litecoin mining)
-* **-o ** (is the host name of your pool.)
+* **-o** (is the host name of your pool.)
 * **-u** (is the username)
 * **-p** (is the password (leave Quotes+Backslash if empty, \"\" ))
 * **-I** (intensity of mining)
@@ -66,6 +66,6 @@ You can contact the coindrone admin at **coindroneminer [at] gmail [dot] com**
 
 Please donate to get the project going:
 
-* *BTC* : 1Dx5ZDXLHoipXqBZQGfv9Ko5HwDRn6ZHZS
-* *LTC* : LaWTZc6Yw46d7zcm9qPtKL63G7dGbtriEP
-* *NMC* : NCBzXMQvGFV9kZNCuHbwg6CEL29Ycp3sqU
+* **BTC** : 1Dx5ZDXLHoipXqBZQGfv9Ko5HwDRn6ZHZS
+* **LTC** : LaWTZc6Yw46d7zcm9qPtKL63G7dGbtriEP
+* **NMC** : NCBzXMQvGFV9kZNCuHbwg6CEL29Ycp3sqU

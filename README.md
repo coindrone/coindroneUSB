@@ -1,8 +1,9 @@
 CoinDrone
 ===
 
+**This project is currently deprecated. The code here is left as-is for historic purposes only.**
 CoinDrone is a USB bootable Operating System used for mining coins (Bitcoins and Altcoins) using GPUs and etc. It is lightweight, stealthy, automated and fast.
-**Currently in ALPHA, bugs are likely to happen. Feedback and suggestion are greatly appreciated**
+
 
 ## Features
 CoinDrone is built upon Arch Linux and include 2 version, AMD and Nvidia in order to maximise compatiblity with all hardwares. It is currently built for X86_64 architechture only and uses cgminer for minting software.
